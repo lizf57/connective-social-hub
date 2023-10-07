@@ -10,13 +10,13 @@ const thoughtSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now
-        // TO DO: Use a getter method to format the timestamp on query
+        // Use a getter method to format the timestamp on query
     }, 
     username: {
         type: String,
         required: true,
     },
-    // reactions: Array of nested documents created with the reactionSchema
+    reactions: [reactionSchema]
 })
 
 

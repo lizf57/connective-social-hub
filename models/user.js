@@ -10,8 +10,8 @@ const userSchema = new Schema({
     email: {
         type: String,
         required: true,
-        unique: true
-        // Must match a valid email address (look into Mongoose's matching validation)
+        unique: true,
+        match: [/.+@.+\..+/],
     },
     thoughts: {
         // Array of _id values referencing the Thought model
