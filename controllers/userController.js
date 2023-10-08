@@ -1,23 +1,18 @@
-const { User } = require('../models')
+const { User, Thought } = require('../models')
 
 const userController = { 
-    // /api/users
-
     // GET all users
     async getAllUsers(req, res){
         try {
-            const users = await User.find({})
-                .populate({ path: 'friends', select: '-__v' })
-                .populate({ path: 'thoughts', select: '-__v' })
+            const users = await User.find()
  
-                return res.json(User)
+                return res.json(users)
 
         } catch (err) {
             console.log(err)
             res.status(500).json(err)
         }
     },
-
     // GET a single user by its _id and populated thought and friend data
     async getSingleUser(req, res){
         try {
@@ -27,7 +22,7 @@ const userController = {
             .populate({ path: 'thoughts', select: '-__v' })
             
             if (!user){
-                return res.status(400).json({ message: 'No user with that id'})
+                return res.status(404).json({ message: 'No user with that id'})
             }
 
             return res.json(user)
@@ -63,18 +58,17 @@ const userController = {
                 return res.status(404).json({ message: 'No user with this id'})
             }
 
-            res.json(user)
+            return res.json(user)
 
         } catch (err) {
             console.log(err)
             res.status(500).json(err)
         }
     },
-
     // DELETE to remove user by its _id
         // Remove a user's associated thoughts when deleted
     async deleteUser(req, res){
-        try{
+        try { 
             const user = await User.findOneAndDelete({ _id: req.params.userId});
 
             if(!user){
@@ -89,10 +83,9 @@ const userController = {
             return res.status(500).json(err)
         }
     },
-    // api/users/:userId/friends/:friendsId
     // POST to add a new friend to a user's friend list
     async addFriend(req, res){
-        try{
+        try { 
             const friend = await User.findOneAndUpdate(
                 { _id: req.params.userId },
                 { $addToSet: { friends: req.params.friendId } },
@@ -112,7 +105,7 @@ const userController = {
     },
     // DELETE to remove a friend from a user's friend list
     async deleteFriend(req, res){
-        try{
+        try {
             const friend = await User.findOneAndUpdate(
                 { _id: req.params.userId },
                 { $pull: { friends: req.params.friendId } },
