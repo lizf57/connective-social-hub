@@ -4,8 +4,12 @@
   "description": "An API built for a social network web application where users can share their thoughts, react to friends' thoughts, and create a friend list.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lizf57/connective-social-hub"
   },
   "keywords": [],
   "author": "",
