@@ -1,10 +1,19 @@
 [
     {
         "thoughtText": "Testing",
-        "reactions": []
+        "username": "lerintino",
+        "reactions": [
+            {
+                "reactionBody": "hello this is a test"
+            }
+        ]
     },
     {
         "thoughtText": "This is a test",
-        "reactions": []
+        "reactions": [
+            {
+                "reactionBody": "hello this is a test 123456"
+            }
+        ]
     }
 ]
