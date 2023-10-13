@@ -3,6 +3,8 @@
 ## Description
 An API built for a social network web application where users can share their thoughts, react to friends' thoughts, and create a friend list. The application uses Express.js for routing, MongoDB database, and Mongoose ODM. 
 
+A walkthough [video](https://drive.google.com/file/d/1-342xg7RAR_D0x5dSeMyjqxv-W0Wx7cN/view?usp=drive_link) of GET routes for all users with screenshots deomonstrating below from Insomnia and MongoDb. 
+
 ![Userss-Insomnia](./public/get-users.png)
 ![Users-MongoDB](./public/mongodb-users.png)
 
