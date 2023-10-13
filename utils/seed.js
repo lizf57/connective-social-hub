@@ -17,7 +17,7 @@ connection.once('open', async () => {
 
         for (const thought of thoughtData) {
         // get random user
-        const randomIndex = Math.floor(Math.random * users.length) 
+        const randomIndex = Math.floor(Math.random() * users.length) 
         const randomUser = users[randomIndex]
         // add username to thought object
         const thoughtUsername = {...thought, username: randomUser.username}
